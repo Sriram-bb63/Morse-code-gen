@@ -10,7 +10,7 @@ def morse(msg):
     #Defining freq and duration
     f=2250      #Frequncy
     d1=250      #Short beep
-    d2=600      #Long beep
+    d2=650      #Long beep
     d3=0        #End gap bw letters
 
     #Converting to lower case
@@ -72,21 +72,16 @@ def morse(msg):
         "\"":[d3,d1,d2,d1,d1,d2,d1],
         "@":[d3,d1,d2,d2,d1,d2,d1]}
 
-    #Takes every character one by one
     for i in range(len(msg)):
-        print(msg[i])#Just to check, will not be a part of the final version
-        #Five sec gap for space bw words
+        print(msg[i])
         if msg[i]==" ":
             sleep(5)
         else:
-            #Get the list containing morse char for the any given alphabet
             lst=dic[msg[i]]
             for j in range(len(lst)):
-                #If the list element is not d3, play sound
                 if lst[j]!=0:
                     Beep(f,lst[j])
                 else:
-                #If it is d3, give 3 sec gap
                     sleep(3)
       
 #Main()
